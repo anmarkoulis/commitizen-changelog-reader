@@ -28,7 +28,11 @@ def get_changelog_lines():
         return changelog_lines
 
 
-if __name__ == "__main__":
+def main():
     notes = get_changelog_lines()
     notes_dict = json.dumps({"notes": notes})
     print(f"::set-output name=notes::{notes_dict}")
+
+
+if __name__ == "__main__":
+    main()
