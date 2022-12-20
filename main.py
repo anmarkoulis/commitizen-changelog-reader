@@ -31,7 +31,7 @@ def get_changelog_lines():
 def main():
     notes = get_changelog_lines()
     notes_dict = json.dumps({"notes": notes})
-    print(f"::set-output name=notes::{notes_dict}")
+    print(f"name=notes={notes_dict} >> GITHUB_OUTPUT")
 
 
 if __name__ == "__main__":
