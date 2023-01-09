@@ -1,6 +1,8 @@
 import json
 import os
 
+import github_action_utils as gha_utils
+
 TAG_NAME = os.getenv("INPUT_TAG_NAME").split("refs/tags/")[1]
 PATH_TO_CHANGELOG = os.getenv("INPUT_CHANGELOG")
 
@@ -31,7 +33,7 @@ def get_changelog_lines():
 def main():
     notes = get_changelog_lines()
     notes_dict = json.dumps({"notes": notes})
-    print(f"notes='{notes_dict}' >> $GITHUB_OUTPUT")
+    gha_utils.set_output("notes", notes_dict)
 
 
 if __name__ == "__main__":
